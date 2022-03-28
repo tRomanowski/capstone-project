@@ -9,4 +9,6 @@ export default {
 const Template = args => <Recipe {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  title: 'Pommes',
+};

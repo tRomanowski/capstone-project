@@ -1,3 +1,6 @@
+import MainWrapper from './components/MainWrapper';
+import Recipe from './components/Recipe';
+
 function App() {
   const recipeObjectList = {
     recipes: [
@@ -3358,11 +3361,19 @@ function App() {
   };
   const recipeList = recipeObjectList.recipes;
 
-  const rndN = Math.floor(Math.random() * 10);
+  const rndN = Math.floor(Math.random() * 9);
   const rndMeal = recipeList[rndN];
-  console.log(rndMeal);
 
-  return <h1>{rndMeal.title}</h1>;
+  return (
+    <MainWrapper>
+      <Recipe
+        title={rndMeal.title}
+        image={rndMeal.image}
+        text={rndMeal.summary}
+        url={rndMeal.sourceUrl}
+      />
+    </MainWrapper>
+  );
 }
 
 export default App;
