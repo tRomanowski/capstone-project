@@ -18,7 +18,12 @@ const Card = styled.section`
   max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #aef08b;
+  background: rgb(174, 240, 139);
+  background: linear-gradient(
+    146deg,
+    rgba(174, 240, 139, 1) 66%,
+    rgba(163, 62, 163, 1) 100%
+  );
   padding: 20px;
   margin-top: 20px;
   display: grid;

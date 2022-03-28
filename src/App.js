@@ -1,3 +1,4 @@
+import Button from './components/Button';
 import MainWrapper from './components/MainWrapper';
 import Recipe from './components/Recipe';
 
@@ -3372,6 +3373,7 @@ function App() {
         text={rndMeal.summary}
         url={rndMeal.sourceUrl}
       />
+      <Button text="Randomize" />
     </MainWrapper>
   );
 }
