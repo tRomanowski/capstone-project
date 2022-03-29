@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export default function Button({ text, remove }) {
-  return <StyledButton remove={remove}>{text}</StyledButton>;
+export default function Button({ text, remove, onRandomize }) {
+  return (
+    <StyledButton onClick={() => onRandomize()} remove={remove}>
+      {text}
+    </StyledButton>
+  );
 }
 
 const StyledButton = styled.button`
