@@ -3,7 +3,9 @@ import Button from './Button.js';
 export default {
   title: 'components/Button',
   component: Button,
-  argTypes: {},
+  argTypes: {
+    onRandomize: 'onRandomize',
+  },
 };
 
 const Template = args => <Button {...args} />;
