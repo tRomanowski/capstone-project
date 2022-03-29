@@ -6,15 +6,18 @@ import Recipe from './components/Recipe';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [randomNumber, setRandomNumber] = useState(0);
   const mockURL = 'http://localhost:3001/recipes';
 
-  console.log(recipes);
+  // let randomNumber = Math.floor(Math.random() * 9);
+
   useEffect(() => {
     async function getRecipes() {
       try {
         const recipesFromServer = await fetchRecipes();
         console.log(recipesFromServer);
         setRecipes(recipesFromServer);
+        setRandomNumber(Math.floor(Math.random() * 9));
       } catch (error) {
         console.log(error);
       }
@@ -34,10 +37,8 @@ function App() {
     }
   }
 
-  let randomNumber = Math.floor(Math.random() * 9);
-
   function handleRandomize() {
-    randomNumber = Math.floor(Math.random() * 9);
+    setRandomNumber(Math.floor(Math.random() * 9));
   }
 
   return (
