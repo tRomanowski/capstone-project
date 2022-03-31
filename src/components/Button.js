@@ -17,5 +17,5 @@ const StyledButton = styled.button`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 2rem;
   width: 240px;
-  margin-bottom: 40px;
+  margin-top: 20px;
 `;

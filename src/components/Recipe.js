@@ -22,7 +22,7 @@ const Card = styled.section`
   background: linear-gradient(
     146deg,
     rgba(174, 240, 139, 1) 66%,
-    rgba(163, 62, 163, 1) 100%
+    rgba(201, 68, 201, 1) 100%
   );
   padding: 20px;
   margin-top: 20px;
