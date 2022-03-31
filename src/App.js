@@ -3,7 +3,7 @@ import MainWrapper from './components/MainWrapper';
 import RecipeList from './components/RecipeList';
 import { useState } from 'react';
 
-function App() {
+export default function App() {
   const [recipes, setRecipes] = useState([]);
   const { REACT_APP_API_KEY } = process.env;
   let randomNumber1 = Math.floor(Math.random() * 5);
@@ -39,5 +39,3 @@ function App() {
     </MainWrapper>
   );
 }
-
-export default App;

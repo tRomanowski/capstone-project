@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export default function RecipeList({ recipes }) {
   return (
-    <StyledList>
+    <StyledList role="list">
       {recipes.map(recipe => {
         return (
           <li key={recipe.id}>
@@ -23,4 +23,6 @@ export default function RecipeList({ recipes }) {
 
 const StyledList = styled.ul`
   list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
 `;
