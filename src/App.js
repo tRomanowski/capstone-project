@@ -28,7 +28,7 @@ export default function App() {
         const response = await fetch(urlIngredients);
         const data = await response.json();
         console.log(data);
-        // if invalid ingredients where send, API responds with an empty array.
+        //  FAILED FETCH / if invalid ingredients where send, API responds with an empty array.
         if (data.length === 0) {
           setRecipes([
             ...recipes,

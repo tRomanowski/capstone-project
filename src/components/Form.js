@@ -104,12 +104,7 @@ const StyledForm = styled.form`
   max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background: rgb(174, 240, 139);
-  background: linear-gradient(
-    146deg,
-    rgba(174, 240, 139, 1) 66%,
-    rgba(201, 68, 201, 1) 100%
-  );
+  background-color: #14fa0f;
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
