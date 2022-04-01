@@ -50,6 +50,7 @@ export default function Form({ onSubmitIngredients }) {
           placeholder="pasta"
           value={ingredient1}
           onChange={event => setIngredient1(event.target.value)}
+          pattern="[^' ']+"
         />
       </FormControl>
       <FormControl>
@@ -60,6 +61,7 @@ export default function Form({ onSubmitIngredients }) {
           placeholder="chicken"
           value={ingredient2}
           onChange={event => setIngredient2(event.target.value)}
+          pattern="[^' ']+"
         />
       </FormControl>
       <FormControl>
@@ -70,6 +72,7 @@ export default function Form({ onSubmitIngredients }) {
           placeholder="broccoli"
           value={ingredient3}
           onChange={event => setIngredient3(event.target.value)}
+          pattern="[^' ']+"
         />
       </FormControl>
       <FormControl>
@@ -80,6 +83,7 @@ export default function Form({ onSubmitIngredients }) {
           placeholder="tuna"
           value={ingredient4}
           onChange={event => setIngredient4(event.target.value)}
+          pattern="[^' ']+"
         />
       </FormControl>
       <FormControl>
@@ -90,6 +94,7 @@ export default function Form({ onSubmitIngredients }) {
           placeholder="capers"
           value={ingredient5}
           onChange={event => setIngredient5(event.target.value)}
+          pattern="[^' ']+"
         />
       </FormControl>
       <FormControl>
