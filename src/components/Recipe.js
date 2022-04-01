@@ -31,7 +31,7 @@ const Card = styled.section`
   max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #14fa0f;
+  background-color: #0dde45;
   padding: 20px;
   margin-top: 20px;
   display: grid;
