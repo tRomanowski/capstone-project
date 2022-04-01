@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function Button({ text, remove, onRandomize }) {
+export default function Button({ text, remove, onClick }) {
   return (
-    <StyledButton onClick={() => onRandomize()} remove={remove}>
+    <StyledButton onClick={onClick} remove={remove}>
       {text}
     </StyledButton>
   );
@@ -15,7 +15,5 @@ const StyledButton = styled.button`
   border-radius: 20px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  font-size: 2rem;
-  width: 240px;
-  margin-top: 20px;
+  font-size: 1.5rem;
 `;

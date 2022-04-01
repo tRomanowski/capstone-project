@@ -1,13 +1,26 @@
+import { nanoid } from 'nanoid';
 //import parse from 'html-react-parser';
 import styled from 'styled-components';
 
-export default function Recipe({ title, image, text, url }) {
+export default function Recipe({
+  title,
+  image,
+  text,
+  url,
+  missingIngredients,
+}) {
   return (
     <Card>
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       {/*<p>{parse(text)}</p>*/}
+      <h3>Missing Ingredients</h3>
+      <ul>
+        {missingIngredients.map(ingredient => {
+          return <li key={nanoid()}>{ingredient.name}</li>;
+        })}
+      </ul>
       <a href={url}>Instructions</a>
     </Card>
   );
@@ -18,12 +31,7 @@ const Card = styled.section`
   max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background: rgb(174, 240, 139);
-  background: linear-gradient(
-    146deg,
-    rgba(174, 240, 139, 1) 66%,
-    rgba(201, 68, 201, 1) 100%
-  );
+  background-color: #0dde45;
   padding: 20px;
   margin-top: 20px;
   display: grid;
