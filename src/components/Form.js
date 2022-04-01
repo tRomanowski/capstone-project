@@ -132,5 +132,13 @@ const FormControl = styled.div`
     height: 40px;
     padding: 3px 7px;
     font-size: 17px;
+
+    &valid {
+      border-color: blue;
+    }
+
+    &invalid {
+      background-color: hsl(5, 30%, 80%);
+    }
   }
 `;

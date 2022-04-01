@@ -1,13 +1,26 @@
+import { nanoid } from 'nanoid';
 //import parse from 'html-react-parser';
 import styled from 'styled-components';
 
-export default function Recipe({ title, image, text, url }) {
+export default function Recipe({
+  title,
+  image,
+  text,
+  url,
+  missingIngredients,
+}) {
   return (
     <Card>
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       {/*<p>{parse(text)}</p>*/}
+      <h3>Missing Ingredients</h3>
+      <ul>
+        {missingIngredients.map(ingredient => {
+          return <li key={nanoid()}>{ingredient.name}</li>;
+        })}
+      </ul>
       <a href={url}>Instructions</a>
     </Card>
   );
