@@ -1,18 +1,35 @@
+import { useEffect, useState } from 'react';
+
 import Form from './components/Form';
 import MainWrapper from './components/MainWrapper';
 import RecipeList from './components/RecipeList';
-import { useState } from 'react';
 
 export default function App() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(loadFromLocal('recipes') ?? []);
   const [missingIngredients, setMissingIngredients] = useState([]);
   const { REACT_APP_API_KEY } = process.env;
   let urlIngredients = '';
 
+  useEffect(() => {
+    saveToLocal('recipes', recipes);
+  }, [recipes]);
+
+  function loadFromLocal(key) {
+    try {
+      return JSON.parse(localStorage.getItem(key));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function saveToLocal(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
   function onSubmitIngredients(arr) {
     async function getNewRecipe() {
       try {
-        // Check which URL should be send depending und number of ingredients
+        // Check which URL should be send depending and number of ingredients
         if (arr.length === 5) {
           urlIngredients = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${arr[0]},+${arr[1]},+${arr[2]},+${arr[3]},+${arr[4]}&number=5`;
         } else if (arr.length === 4) {
