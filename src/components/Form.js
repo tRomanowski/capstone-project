@@ -41,7 +41,7 @@ export default function Form({ onSubmitIngredients }) {
   }
 
   return (
-    <StyledForm onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit} aria-label="search for recipe">
       <FormControl>
         <label htmlFor="first">First Ingredient:</label>
         <input
