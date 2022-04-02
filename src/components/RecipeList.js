@@ -1,20 +1,21 @@
 import React from 'react';
 import Recipe from './Recipe';
-import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-export default function RecipeList({ recipes, missingIngredients }) {
+export default function RecipeList({ recipes, missingIngredients, onDelete }) {
   return (
     <StyledList role="list">
       {recipes.map(recipe => {
         return (
-          <li key={nanoid()}>
+          <li key={recipe.id}>
             <Recipe
               title={recipe.title}
               image={recipe.image}
               text={recipe.summary}
               url={recipe.sourceUrl}
               missingIngredients={missingIngredients}
+              onDelete={onDelete}
+              id={recipe.id}
             />
           </li>
         );

@@ -4,7 +4,8 @@ export default {
   title: 'components/Form',
   component: Form,
   argTypes: {
-    onsubmit: 'onSubmit',
+    onSubmit: 'onSubmit',
+    onSubmitIngredients: 'onSubmitIngredients',
   },
 };
 

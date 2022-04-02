@@ -1,3 +1,4 @@
+import Button from './Button';
 import { nanoid } from 'nanoid';
 //import parse from 'html-react-parser';
 import styled from 'styled-components';
@@ -8,6 +9,8 @@ export default function Recipe({
   text,
   url,
   missingIngredients,
+  onDelete,
+  id,
 }) {
   return (
     <Card>
@@ -22,6 +25,7 @@ export default function Recipe({
         })}
       </ul>
       <a href={url}>Instructions</a>
+      <Button remove text="Delete" onClick={() => onDelete(id)}></Button>
     </Card>
   );
 }
