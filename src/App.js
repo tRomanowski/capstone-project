@@ -70,7 +70,7 @@ export default function App() {
 
   return (
     <MainWrapper>
-      <h1>Randomizer</h1>
+      <h1>Randomealizer</h1>
       <p>
         Put in some ingredients you have at your disposal and get a great recipe
         idea.
