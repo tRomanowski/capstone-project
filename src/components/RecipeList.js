@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export default function RecipeList({ recipes, missingIngredients, onDelete }) {
   return (
-    <StyledList role="list">
+    <StyledList role="list" aria-label="Recipes">
       {recipes.map(recipe => {
         return (
           <li key={recipe.id}>
