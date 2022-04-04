@@ -1,3 +1,4 @@
+import { loadFromLocal, saveToLocal } from './utilityFunctions/localStorage';
 import { useEffect, useState } from 'react';
 
 import Form from './components/Form';
@@ -13,18 +14,6 @@ export default function App() {
   useEffect(() => {
     saveToLocal('recipes', recipes);
   }, [recipes]);
-
-  function loadFromLocal(key) {
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
 
   function onSubmitIngredients(arr) {
     async function getNewRecipe() {
@@ -74,6 +63,11 @@ export default function App() {
   }
   console.log(recipes);
   console.log(missingIngredients);
+
+  function handleDelete(id) {
+    setRecipes(recipes.filter(recipe => recipe.id !== id));
+  }
+
   return (
     <MainWrapper>
       <h1>Randomizer</h1>
@@ -87,7 +81,11 @@ export default function App() {
       </p>
       <Form onSubmitIngredients={onSubmitIngredients} />
       {recipes.length > 0 && (
-        <RecipeList recipes={recipes} missingIngredients={missingIngredients} />
+        <RecipeList
+          recipes={recipes}
+          missingIngredients={missingIngredients}
+          onDelete={handleDelete}
+        />
       )}
     </MainWrapper>
   );
