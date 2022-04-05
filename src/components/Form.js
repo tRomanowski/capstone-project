@@ -8,7 +8,7 @@ export default function Form({ onSubmitIngredients }) {
   const [ingredient3, setIngredient3] = useState('');
   const [ingredient4, setIngredient4] = useState('');
   const [ingredient5, setIngredient5] = useState('');
-  let arr = [];
+  let ingredients = {};
 
   function onSubmit(event) {
     event.preventDefault();
@@ -19,19 +19,29 @@ export default function Form({ onSubmitIngredients }) {
       ingredient4 &&
       ingredient5
     ) {
-      arr.push(ingredient1, ingredient2, ingredient3, ingredient4, ingredient5);
+      ingredients.ingredient1 = ingredient1;
+      ingredients.ingredient2 = ingredient2;
+      ingredients.ingredient3 = ingredient3;
+      ingredients.ingredient4 = ingredient4;
+      ingredients.ingredient5 = ingredient5;
     } else if (ingredient1 && ingredient2 && ingredient3 && ingredient4) {
-      arr.push(ingredient1, ingredient2, ingredient3, ingredient4);
+      ingredients.ingredient1 = ingredient1;
+      ingredients.ingredient2 = ingredient2;
+      ingredients.ingredient3 = ingredient3;
+      ingredients.ingredient4 = ingredient4;
     } else if (ingredient1 && ingredient2 && ingredient3) {
-      arr.push(ingredient1, ingredient2, ingredient3);
+      ingredients.ingredient1 = ingredient1;
+      ingredients.ingredient2 = ingredient2;
+      ingredients.ingredient3 = ingredient3;
     } else if (ingredient1 && ingredient2) {
-      arr.push(ingredient1, ingredient2);
+      ingredients.ingredient1 = ingredient1;
+      ingredients.ingredient2 = ingredient2;
     } else {
       alert('You need to put in your first and second ingredient');
       return;
     }
 
-    onSubmitIngredients(arr);
+    onSubmitIngredients(ingredients);
 
     setIngredient1('');
     setIngredient2('');

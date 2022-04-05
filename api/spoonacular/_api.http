@@ -1,0 +1,13 @@
+@baseURL = http://localhost:3000/api/spoonacular
+
+### GET /api
+
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "ingredient1": "chicken",
+    "ingredient2": "rice",
+    "ingredient3": "tomato",
+    "ingredient4": "olive"
+}

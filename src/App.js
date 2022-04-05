@@ -1,7 +1,6 @@
 import Form from './components/Form';
 import MainWrapper from './components/MainWrapper';
 import RecipeList from './components/RecipeList';
-import useSWR from 'swr';
 import { useState } from 'react';
 
 // const fetcher = (...args) => fetch(...args).then(res => res.json());
@@ -21,15 +20,15 @@ export default function App() {
   //   saveToLocal('recipes', recipes);
   // }, [recipes]);
 
-  function onSubmitIngredients(arr) {
-    console.log(arr);
+  function onSubmitIngredients(obj) {
+    console.log(obj);
     async function getNewRecipe() {
-      const responds = await fetch('/api', {
+      const responds = await fetch('/api/spoonacular', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(arr),
+        body: JSON.stringify(obj),
       });
       const data = await responds.json();
       setRecipes([...recipes, data]);
