@@ -24,37 +24,11 @@ export default function App() {
       setRecipes([...recipes, data]);
     }
     getNewRecipe();
-    //     //  FAILED FETCH / if invalid ingredients where send, API responds with an empty array.
-    //     if (data.length === 0) {
-    //       setRecipes([
-    //         ...recipes,
-    //         {
-    //           title: 'Sorry there was no recipe found for you!',
-    //           image: 'https://source.unsplash.com/random/?food',
-    //           summary: 'Please fill in some other ingedients!',
-    //           url: 'https://www.google.com',
-    //         },
-    //       ]);
-    //       setMissingIngredients([{ name: 'Everything' }]);
-    //     } else {
-    //       let randomNumber = Math.floor(Math.random() * 5);
-    //       setMissingIngredients(data[randomNumber].missedIngredients);
-    //       let urlID = `https://api.spoonacular.com/recipes/${data[randomNumber].id}/information?apiKey=${REACT_APP_API_KEY}`;
-    //       const response2 = await fetch(urlID);
-    //       const data2 = await response2.json();
-    //       console.log(data2);
-    //       setRecipes([...recipes, data2]);
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
-    // getNewRecipe();
   }
   function handleDelete(id) {
     setRecipes(recipes.filter(recipe => recipe.id !== id));
   }
-
+  console.log(recipes);
   return (
     <MainWrapper>
       <h1>Randomealizer</h1>
