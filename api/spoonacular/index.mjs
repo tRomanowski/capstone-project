@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       );
       let data = await response2.json();
       data = { ...data, predata };
-      res.json(data);
+      res.status(200).json(data);
       return;
     }
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
       );
       let data = await response2.json();
       data = { ...data, predata };
-      res.json(data);
+      res.status(200).json(data);
       return;
     }
 
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
       );
       let data = await response2.json();
       data = { ...data, predata };
-      res.json(data);
+      res.status(200).json(data);
       return;
     }
 
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
       );
       let data = await response2.json();
       data = { ...data, predata };
-      res.json(data);
+      res.status(200).json(data);
       return;
     }
   }
