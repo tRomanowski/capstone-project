@@ -11,15 +11,6 @@ export default function App() {
 
   // if (error) return <h1>Sorry, could not fetch</h1>;
 
-  // const [recipes, setRecipes] = useState(loadFromLocal('recipes') ?? []);
-  // const [missingIngredients, setMissingIngredients] = useState([]);
-  // const { REACT_APP_API_KEY } = process.env;
-  // let urlIngredients = '';
-
-  // // useEffect(() => {
-  //   saveToLocal('recipes', recipes);
-  // }, [recipes]);
-
   function onSubmitIngredients(obj) {
     async function getNewRecipe() {
       const responds = await fetch('/api/spoonacular', {
@@ -33,24 +24,6 @@ export default function App() {
       setRecipes([...recipes, data]);
     }
     getNewRecipe();
-    // async function getNewRecipe() {
-    //   try {
-    //     // Check which URL should be send depending and number of ingredients
-    //     if (arr.length === 5) {
-    //       urlIngredients = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${arr[0]},+${arr[1]},+${arr[2]},+${arr[3]},+${arr[4]}&number=5`;
-    //     } else if (arr.length === 4) {
-    //       urlIngredients = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${arr[0]},+${arr[1]},+${arr[2]},+${arr[3]}&number=5`;
-    //     } else if (arr.length === 3) {
-    //       urlIngredients = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${arr[0]},+${arr[1]},+${arr[2]}&number=5`;
-    //     } else if (arr.length === 2) {
-    //       urlIngredients = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${arr[0]},+${arr[1]}&number=5`;
-    //     } else {
-    //       console.log('Something went wrong!');
-    //     }
-    //     console.log(urlIngredients);
-    //     const response = await fetch(urlIngredients);
-    //     const data = await response.json();
-    //     console.log(data);
     //     //  FAILED FETCH / if invalid ingredients where send, API responds with an empty array.
     //     if (data.length === 0) {
     //       setRecipes([
