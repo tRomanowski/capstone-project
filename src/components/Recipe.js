@@ -18,12 +18,12 @@ export default function Recipe({
       <img src={image} height="200" width="300" alt="" />
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       {/*<p>{parse(text)}</p>*/}
-      {/* <h3>Missing Ingredients</h3>
+      <h3>Missing Ingredients</h3>
       <ul aria-label="missing ingredients">
         {missingIngredients.map(ingredient => {
           return <li key={nanoid()}>{ingredient.name}</li>;
         })}
-      </ul> */}
+      </ul>
       <a href={url}>Instructions</a>
       <Button remove text="Delete" onClick={() => onDelete(id)}></Button>
     </Card>

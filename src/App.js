@@ -21,7 +21,6 @@ export default function App() {
   // }, [recipes]);
 
   function onSubmitIngredients(obj) {
-    console.log(obj);
     async function getNewRecipe() {
       const responds = await fetch('/api/spoonacular', {
         method: 'POST',
@@ -79,7 +78,6 @@ export default function App() {
     // }
     // getNewRecipe();
   }
-  console.log(recipes);
   function handleDelete(id) {
     setRecipes(recipes.filter(recipe => recipe.id !== id));
   }
@@ -97,11 +95,7 @@ export default function App() {
       </p>
       <Form onSubmitIngredients={onSubmitIngredients} />
       {recipes.length > 0 && (
-        <RecipeList
-          recipes={recipes}
-          // missingIngredients={missingIngredients}
-          onDelete={handleDelete}
-        />
+        <RecipeList recipes={recipes} onDelete={handleDelete} />
       )}
     </MainWrapper>
   );

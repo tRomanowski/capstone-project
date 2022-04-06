@@ -3,7 +3,7 @@ import Recipe from './Recipe';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-export default function RecipeList({ recipes, missingIngredients, onDelete }) {
+export default function RecipeList({ recipes, onDelete }) {
   return (
     <StyledList role="list" aria-label="Recipes">
       {recipes.map(recipe => {
@@ -14,7 +14,7 @@ export default function RecipeList({ recipes, missingIngredients, onDelete }) {
               image={recipe.image}
               text={recipe.summary}
               url={recipe.sourceUrl}
-              missingIngredients={missingIngredients}
+              missingIngredients={recipe.predata[0].missedIngredients}
               onDelete={onDelete}
               id={recipe.id}
             />
