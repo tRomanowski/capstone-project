@@ -14,7 +14,7 @@ export default function RecipeList({ recipes, onDelete }) {
               image={recipe.image}
               text={recipe.summary}
               url={recipe.sourceUrl}
-              missingIngredients={recipe.predata[0].missedIngredients}
+              missingIngredients={recipe.missedIngredients}
               onDelete={onDelete}
               id={recipe.id}
             />

@@ -1,0 +1,5 @@
+@baseURL = http://localhost:3000/api/recipes
+
+### GET / db recipes
+
+GET {{baseURL}}

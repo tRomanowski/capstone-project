@@ -1,6 +1,5 @@
 import Button from './Button';
 import { nanoid } from 'nanoid';
-//import parse from 'html-react-parser';
 import styled from 'styled-components';
 
 export default function Recipe({
@@ -17,7 +16,6 @@ export default function Recipe({
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
-      {/*<p>{parse(text)}</p>*/}
       <h3>Missing Ingredients</h3>
       <ul aria-label="missing ingredients">
         {missingIngredients.map(ingredient => {

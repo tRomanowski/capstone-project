@@ -4,7 +4,11 @@ const { Schema, model } = mongoose;
 const schema = new Schema(
   {
     id: { type: Number },
-    Image: { type: String },
+    title: { type: String },
+    image: { type: String },
+    summary: { type: String },
+    sourceUrl: { type: String },
+    missedIngredients: { type: Array },
   },
   {
     versionKey: false,
