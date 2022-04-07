@@ -26,7 +26,7 @@ export default function Recipe({
       <a href={url}>Instructions</a>
       <div>
         <Button text="Save" onClick={onSave} />
-        <Button remove text="Delete" onClick={() => onDelete(id)} />
+        <Button remove text="Delete" onClick={onDelete} />
       </div>
     </Card>
   );

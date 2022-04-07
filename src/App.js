@@ -34,8 +34,16 @@ export default function App() {
     }
     getNewRecipe();
   }
-  function handleDelete(id) {
-    setRecipes(recipes.filter(recipe => recipe.id !== id));
+  async function handleDelete(obj) {
+    setRecipes(recipes.filter(recipe => recipe.id !== obj.id));
+    await fetch('/api/recipes', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj._id),
+    });
+    alert('Recipe deleted');
   }
 
   async function handleSave(recipe) {

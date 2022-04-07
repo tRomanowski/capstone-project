@@ -20,3 +20,12 @@ Content-Type: application/json
       }
     ]
 }
+
+### DELETE / db delete recipes
+
+DELETE {{baseURL}}
+Content-Type: application/json
+
+{
+  "_id": "624f13da6f51bc1f8443fccd"
+}
