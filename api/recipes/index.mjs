@@ -9,5 +9,10 @@ export default async function handler(req, res) {
     return res.status(200).json(recipes);
   }
 
+  if (req.method === 'POST') {
+    const newRecipe = await Recipe.create(req.body);
+    return res.status(200).json(newRecipe);
+  }
+
   res.status(501).json(`Not implemented`);
 }

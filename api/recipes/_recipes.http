@@ -3,3 +3,20 @@
 ### GET / db recipes
 
 GET {{baseURL}}
+
+### POST / db recipes
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "id": 4124 ,
+    "title": "Test POST Recipe",
+    "image": "https://source.unsplash.com/random/200×300",
+    "summary": "lorem ipsum blablabla ....",
+    "sourceUrl": "https://developer.mozilla.org/de/",
+    "missedIngredients": [
+      {
+        "name": "oil"
+      }
+    ]
+}
