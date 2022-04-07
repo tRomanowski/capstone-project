@@ -10,6 +10,7 @@ export default function Recipe({
   missingIngredients,
   onDelete,
   id,
+  onSave,
 }) {
   return (
     <Card>
@@ -23,7 +24,10 @@ export default function Recipe({
         })}
       </ul>
       <a href={url}>Instructions</a>
-      <Button remove text="Delete" onClick={() => onDelete(id)}></Button>
+      <div>
+        <Button text="Save" onClick={onSave} />
+        <Button remove text="Delete" onClick={() => onDelete(id)} />
+      </div>
     </Card>
   );
 }
