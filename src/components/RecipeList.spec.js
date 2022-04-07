@@ -11,6 +11,7 @@ describe('RecipeList', () => {
         summary:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         sourceUrl: 'https://developer.mozilla.org/de/',
+        missedIngredients: [{ name: 'oil' }],
         id: 1,
       },
       {
@@ -19,12 +20,11 @@ describe('RecipeList', () => {
         summary:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         sourceUrl: 'https://developer.mozilla.org/de/',
+        missedIngredients: [{ name: 'oil' }],
         id: 2,
       },
     ];
-    render(
-      <RecipeList recipes={recipes} missingIngredients={[{ name: 'oil' }]} />
-    );
+    render(<RecipeList recipes={recipes} />);
 
     const list = screen.getByRole('list', { name: 'Recipes' });
     const { getAllByRole } = within(list);
