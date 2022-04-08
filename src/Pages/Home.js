@@ -6,7 +6,6 @@ import { useState } from 'react';
 export default function Home() {
   const [recipe, setRecipe] = useState({});
   const [showRecipe, setShowRecipe] = useState(false);
-  console.log(recipe);
   function onSubmitIngredients(obj) {
     async function getNewRecipe(obj) {
       const responds = await fetch('/api/spoonacular', {
