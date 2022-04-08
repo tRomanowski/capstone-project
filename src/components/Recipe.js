@@ -9,7 +9,7 @@ export default function Recipe({
   url,
   missingIngredients,
   onDelete,
-  id,
+  _id,
   onSave,
 }) {
   return (
@@ -25,7 +25,7 @@ export default function Recipe({
       </ul>
       <a href={url}>Instructions</a>
       <div>
-        <Button text="Save" onClick={onSave} />
+        {onSave && <Button text="Save" onClick={onSave} />}
         <Button remove text="Delete" onClick={onDelete} />
       </div>
     </Card>

@@ -4,19 +4,6 @@ import Favorites from './Pages/Favorites';
 import Home from './Pages/Home';
 
 export default function App() {
-  // useEffect(() => {
-  //   fetch('api/recipes')
-  //     .then(async res => {
-  //       const data = await res.json();
-  //       if (!res.ok) {
-  //         console.error(data);
-  //         return [];
-  //       }
-  //       return data;
-  //     })
-  //     .then(setRecipes);
-  // }, []);
-
   // function onSubmitIngredients(obj) {
   //   async function getNewRecipe() {
   //     const responds = await fetch('/api/spoonacular', {
