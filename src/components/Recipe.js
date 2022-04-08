@@ -19,7 +19,7 @@ export default function Recipe({
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       <h3>Missing Ingredients</h3>
       <ul aria-label="missing ingredients">
-        {missingIngredients.map(ingredient => {
+        {missingIngredients?.map(ingredient => {
           return <li key={nanoid()}>{ingredient.name}</li>;
         })}
       </ul>
