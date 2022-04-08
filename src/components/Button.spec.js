@@ -4,7 +4,7 @@ import Button from './Button.js';
 import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
-  it('calls Callback Function on button click', () => {
+  it('calls Function on button click', () => {
     const mockCallback = jest.fn();
     render(<Button onClick={mockCallback} text="Randomize" />);
 

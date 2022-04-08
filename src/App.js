@@ -1,15 +1,24 @@
+import { useEffect, useState } from 'react';
+
 import Form from './components/Form';
 import MainWrapper from './components/MainWrapper';
 import RecipeList from './components/RecipeList';
-import { useState } from 'react';
-
-// const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function App() {
   const [recipes, setRecipes] = useState([]);
-  // // const { data, error } = useSWR('/api', fetcher);
 
-  // if (error) return <h1>Sorry, could not fetch</h1>;
+  useEffect(() => {
+    fetch('api/recipes')
+      .then(async res => {
+        const data = await res.json();
+        if (!res.ok) {
+          console.error(data);
+          return [];
+        }
+        return data;
+      })
+      .then(setRecipes);
+  }, []);
 
   function onSubmitIngredients(obj) {
     async function getNewRecipe() {
@@ -25,8 +34,36 @@ export default function App() {
     }
     getNewRecipe();
   }
-  function handleDelete(id) {
-    setRecipes(recipes.filter(recipe => recipe.id !== id));
+  async function handleDelete(obj) {
+    setRecipes(recipes.filter(recipe => recipe.id !== obj.id));
+    await fetch('/api/recipes', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj._id),
+    });
+    alert('Recipe deleted');
+  }
+
+  async function handleSave(recipe) {
+    const newRecipe = {
+      id: recipe.id,
+      title: recipe.title,
+      image: recipe.image,
+      summary: recipe.summary,
+      sourceUrl: recipe.sourceUrl,
+      missedIngredients: recipe.missedIngredients,
+    };
+
+    await fetch('/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+    });
+    alert('Recipe saved');
   }
   console.log(recipes);
   return (
@@ -42,7 +79,11 @@ export default function App() {
       </p>
       <Form onSubmitIngredients={onSubmitIngredients} />
       {recipes.length > 0 && (
-        <RecipeList recipes={recipes} onDelete={handleDelete} />
+        <RecipeList
+          recipes={recipes}
+          onDelete={handleDelete}
+          onSave={handleSave}
+        />
       )}
     </MainWrapper>
   );

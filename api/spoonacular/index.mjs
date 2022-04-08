@@ -24,11 +24,7 @@ export default async function handler(req, res) {
           image: 'https://source.unsplash.com/random/?food',
           summary: 'Please fill in some other ingedients!',
           url: 'https://www.google.com',
-          predata: [
-            {
-              missedIngredients: [{ name: 'everything' }],
-            },
-          ],
+          missedIngredients: [{ name: 'everything' }],
         };
         res.status(200).json(data);
         return;
@@ -37,7 +33,7 @@ export default async function handler(req, res) {
         `https://api.spoonacular.com/recipes/${predata[0].id}/information?apiKey=${REACT_APP_API_KEY}`
       );
       let data = await response2.json();
-      data = { ...data, predata };
+      data = { ...data, ...predata[0] };
       res.status(200).json(data);
       return;
     }
@@ -54,11 +50,7 @@ export default async function handler(req, res) {
           image: 'https://source.unsplash.com/random/?food',
           summary: 'Please fill in some other ingedients!',
           url: 'https://www.google.com',
-          predata: [
-            {
-              missedIngredients: [{ name: 'everything' }],
-            },
-          ],
+          missedIngredients: [{ name: 'everything' }],
         };
         res.status(200).json(data);
         return;
@@ -68,7 +60,7 @@ export default async function handler(req, res) {
         `https://api.spoonacular.com/recipes/${predata[0].id}/information?apiKey=${REACT_APP_API_KEY}`
       );
       let data = await response2.json();
-      data = { ...data, predata };
+      data = { ...data, ...predata[0] };
       res.status(200).json(data);
       return;
     }
@@ -85,11 +77,7 @@ export default async function handler(req, res) {
           image: 'https://source.unsplash.com/random/?food',
           summary: 'Please fill in some other ingedients!',
           url: 'https://www.google.com',
-          predata: [
-            {
-              missedIngredients: [{ name: 'everything' }],
-            },
-          ],
+          missedIngredients: [{ name: 'everything' }],
         };
         res.status(200).json(data);
         return;
@@ -99,7 +87,7 @@ export default async function handler(req, res) {
         `https://api.spoonacular.com/recipes/${predata[0].id}/information?apiKey=${REACT_APP_API_KEY}`
       );
       let data = await response2.json();
-      data = { ...data, predata };
+      data = { ...data, ...predata[0] };
       res.status(200).json(data);
       return;
     }
@@ -116,11 +104,7 @@ export default async function handler(req, res) {
           image: 'https://source.unsplash.com/random/?food',
           summary: 'Please fill in some other ingedients!',
           url: 'https://www.google.com',
-          predata: [
-            {
-              missedIngredients: [{ name: 'everything' }],
-            },
-          ],
+          missedIngredients: [{ name: 'everything' }],
         };
         res.status(200).json(data);
         return;
@@ -129,7 +113,7 @@ export default async function handler(req, res) {
         `https://api.spoonacular.com/recipes/${predata[0].id}/information?apiKey=${REACT_APP_API_KEY}`
       );
       let data = await response2.json();
-      data = { ...data, predata };
+      data = { ...data, ...predata[0] };
       res.status(200).json(data);
       return;
     }

@@ -35,7 +35,10 @@ describe('Form', () => {
     userEvent.type(secondInput, 'Banana');
     userEvent.click(submitButton);
 
-    expect(handleSubmit).toHaveBeenCalledWith(['Apple', 'Banana']);
+    expect(handleSubmit).toHaveBeenCalledWith({
+      ingredient1: 'Apple',
+      ingredient2: 'Banana',
+    });
   });
 
   it('does not submit if the first inputfield is empty and alerts', () => {

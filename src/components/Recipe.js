@@ -1,6 +1,5 @@
 import Button from './Button';
 import { nanoid } from 'nanoid';
-//import parse from 'html-react-parser';
 import styled from 'styled-components';
 
 export default function Recipe({
@@ -11,13 +10,13 @@ export default function Recipe({
   missingIngredients,
   onDelete,
   id,
+  onSave,
 }) {
   return (
     <Card>
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
-      {/*<p>{parse(text)}</p>*/}
       <h3>Missing Ingredients</h3>
       <ul aria-label="missing ingredients">
         {missingIngredients.map(ingredient => {
@@ -25,7 +24,10 @@ export default function Recipe({
         })}
       </ul>
       <a href={url}>Instructions</a>
-      <Button remove text="Delete" onClick={() => onDelete(id)}></Button>
+      <div>
+        <Button text="Save" onClick={onSave} />
+        <Button remove text="Delete" onClick={onDelete} />
+      </div>
     </Card>
   );
 }
