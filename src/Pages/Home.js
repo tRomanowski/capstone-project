@@ -51,15 +51,6 @@ export default function Home() {
 
   return (
     <MainWrapper>
-      <h1>Randomealizer</h1>
-      <p>
-        Put in some ingredients you have at your disposal and get a great recipe
-        idea.
-      </p>
-      <p>
-        Please fill in just a single ingredient per field. Its has to be just
-        one word!
-      </p>
       {!showRecipe && <Form onSubmitIngredients={onSubmitIngredients} />}
       {showRecipe &&
         (recipe ? (
