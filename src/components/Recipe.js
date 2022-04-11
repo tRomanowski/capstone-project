@@ -9,7 +9,6 @@ export default function Recipe({
   url,
   missingIngredients,
   onDelete,
-  _id,
   onSave,
 }) {
   return (
