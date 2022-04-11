@@ -20,7 +20,6 @@ export default function Favorites() {
   }, []);
 
   async function handleDelete(obj) {
-    console.log(obj);
     setRecipes(recipes.filter(recipe => recipe._id !== obj._id));
     await fetch('/api/recipes', {
       method: 'DELETE',
