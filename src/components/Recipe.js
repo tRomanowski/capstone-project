@@ -9,7 +9,7 @@ export default function Recipe({
   url,
   missingIngredients,
   onDelete,
-  id,
+  _id,
   onSave,
 }) {
   return (
@@ -19,13 +19,13 @@ export default function Recipe({
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       <h3>Missing Ingredients</h3>
       <ul aria-label="missing ingredients">
-        {missingIngredients.map(ingredient => {
+        {missingIngredients?.map(ingredient => {
           return <li key={nanoid()}>{ingredient.name}</li>;
         })}
       </ul>
       <a href={url}>Instructions</a>
       <div>
-        <Button text="Save" onClick={onSave} />
+        {onSave && <Button text="Save" onClick={onSave} />}
         <Button remove text="Delete" onClick={onDelete} />
       </div>
     </Card>
@@ -33,13 +33,11 @@ export default function Recipe({
 }
 
 const Card = styled.section`
-  min-width: 399px;
-  max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #0dde45;
+  background-color: #65a603;
   padding: 20px;
-  margin-top: 20px;
+  margin: 20px 5px 0;
   display: grid;
   gap: 20px;
   justify-items: center;
@@ -51,10 +49,18 @@ const Card = styled.section`
 
   p {
     background-color: #fff;
+    color: #000;
     border-radius: 20px;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
       rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     padding: 10px;
     text-align: center;
+  }
+  p a {
+    color: blue;
+  }
+
+  a {
+    color: #dfe2f2;
   }
 `;

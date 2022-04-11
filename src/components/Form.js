@@ -115,11 +115,10 @@ export default function Form({ onSubmitIngredients }) {
 }
 
 const StyledForm = styled.form`
-  min-width: 399px;
-  max-width: 400px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #0dde45;
+  background-color: #65a603;
+  padding: 20px;
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
@@ -138,17 +137,11 @@ const FormControl = styled.div`
     text-align: start;
   }
   input {
+    border-radius: 20px;
     width: 100%;
     height: 40px;
     padding: 3px 7px;
     font-size: 17px;
-
-    &valid {
-      border-color: blue;
-    }
-
-    &invalid {
-      background-color: hsl(5, 30%, 80%);
-    }
+    border: none;
   }
 `;

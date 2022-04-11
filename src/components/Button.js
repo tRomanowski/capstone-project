@@ -10,8 +10,8 @@ export default function Button({ text, remove, onClick }) {
 
 const StyledButton = styled.button`
   padding: 10px;
-  color: ${props => (props.remove ? 'white' : '#000')};
-  background-color: ${props => (props.remove ? 'red' : '#caffad')};
+  color: ${props => (props.remove ? '#DFE2F2' : '#000')};
+  background-color: ${props => (props.remove ? 'red' : '#D9B504')};
   border-radius: 20px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

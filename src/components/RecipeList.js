@@ -16,8 +16,6 @@ export default function RecipeList({ recipes, onDelete, onSave }) {
               url={recipe.sourceUrl}
               missingIngredients={recipe.missedIngredients}
               onDelete={() => onDelete(recipe)}
-              onSave={() => onSave(recipe)}
-              id={recipe.id}
             />
           </li>
         );
