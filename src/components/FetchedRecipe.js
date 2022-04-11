@@ -1,9 +1,8 @@
-import Button from './Button';
+import TinderCard from 'react-tinder-card';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
-import { useState } from 'react';
 
-export default function Recipe({
+export default function FetchedRecipe({
   title,
   image,
   text,
@@ -12,35 +11,34 @@ export default function Recipe({
   onDelete,
   onSave,
 }) {
-  const [extended, setExtended] = useState(false);
+  const onSwipe = direction => {
+    console.log('You swiped: ' + direction);
 
-  function extendCard() {
-    setExtended(!extended);
-  }
+    if (direction === 'left') {
+      onDelete();
+    }
+
+    if (direction === 'right') {
+      onSave();
+    }
+  };
+
   return (
-    <RecipeCard>
+    <RecipeCard onSwipe={onSwipe} preventSwipe={['up', 'down']}>
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
-      {extended && <p dangerouslySetInnerHTML={{ __html: text }}></p>}
-      {extended && <h3>Missing Ingredients</h3>}
-      {extended && (
-        <ul aria-label="missing ingredients">
-          {missingIngredients?.map(ingredient => {
-            return <li key={nanoid()}>{ingredient.name}</li>;
-          })}
-        </ul>
-      )}
-      <span onClick={extendCard}>{extended ? 'back' : 'Info'}</span>
+      <h3>Missing Ingredients</h3>
+      <ul aria-label="missing ingredients">
+        {missingIngredients?.map(ingredient => {
+          return <li key={nanoid()}>{ingredient.name}</li>;
+        })}
+      </ul>
       <a href={url}>Instructions</a>
-      <div>
-        {onSave && <Button text="Save" onClick={onSave} />}
-        <Button remove text="Delete" onClick={onDelete} />
-      </div>
     </RecipeCard>
   );
 }
 
-const RecipeCard = styled.section`
+const RecipeCard = styled(TinderCard)`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #65a603;

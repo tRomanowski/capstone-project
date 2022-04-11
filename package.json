@@ -16,6 +16,7 @@
     "react-icons": "^4.3.1",
     "react-router": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-tinder-card": "^1.4.5",
     "storybook": "^6.4.19",
     "styled-components": "^5.3.5",
     "swr": "^1.2.2",

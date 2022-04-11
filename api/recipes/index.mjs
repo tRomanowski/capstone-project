@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
   if (req.method === 'DELETE') {
     const _id = req.body;
-    console.log(_id);
     const result = await Recipe.findByIdAndDelete(_id);
     return res.status(200).json(result);
   }
