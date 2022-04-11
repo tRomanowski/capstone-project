@@ -3,7 +3,6 @@ const { Schema, model } = mongoose;
 
 const schema = new Schema(
   {
-    id: { type: Number },
     title: { type: String },
     image: { type: String },
     summary: { type: String },
