@@ -1,9 +1,10 @@
+import { Children } from 'react';
 import styled from 'styled-components';
 
-export default function Button({ text, remove, onClick }) {
+export default function Button({ remove, onClick, children }) {
   return (
     <StyledButton onClick={onClick} remove={remove}>
-      {text}
+      {children}
     </StyledButton>
   );
 }
@@ -16,5 +17,5 @@ const StyledButton = styled.button`
   border: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1rem;
 `;

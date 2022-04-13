@@ -1,3 +1,4 @@
+import Button from '../components/Button';
 import Form from '../components/Form';
 import MainWrapper from '../components/MainWrapper';
 import Recipe from '../components/Recipe';
@@ -6,6 +7,7 @@ import { useState } from 'react';
 export default function Home() {
   const [recipe, setRecipe] = useState({});
   const [showRecipe, setShowRecipe] = useState(false);
+
   function onSubmitIngredients(obj) {
     async function getNewRecipe(obj) {
       const responds = await fetch('/api/spoonacular', {
@@ -25,6 +27,7 @@ export default function Home() {
   async function handleDelete() {
     setShowRecipe(false);
     setRecipe({});
+    alert('Recipe removed');
   }
 
   async function handleSave(recipe) {
@@ -52,21 +55,17 @@ export default function Home() {
   return (
     <MainWrapper>
       {!showRecipe && <Form onSubmitIngredients={onSubmitIngredients} />}
-      {showRecipe &&
-        (recipe ? (
-          <Recipe
-            title={recipe.title}
-            image={recipe.image}
-            text={recipe.summary}
-            url={recipe.sourceUrl}
-            missingIngredients={recipe.missedIngredients}
-            onDelete={handleDelete}
-            onSave={() => handleSave(recipe)}
-            id={recipe._id}
-          />
-        ) : (
-          'Loading'
-        ))}
+      {showRecipe && (
+        <Recipe
+          title={recipe.title}
+          image={recipe.image}
+          text={recipe.summary}
+          url={recipe.sourceUrl}
+          missingIngredients={recipe.missedIngredients}
+          onDelete={handleDelete}
+          onSave={() => handleSave(recipe)}
+        />
+      )}
     </MainWrapper>
   );
 }

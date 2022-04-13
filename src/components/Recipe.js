@@ -1,6 +1,7 @@
 import Button from './Button';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 export default function Recipe({
   title,
@@ -11,35 +12,67 @@ export default function Recipe({
   onDelete,
   onSave,
 }) {
+  const [extended, setExtended] = useState(false);
+
+  function extendCard() {
+    setExtended(!extended);
+  }
   return (
-    <Card>
+    <RecipeCard>
       <h2>{title}</h2>
       <img src={image} height="200" width="300" alt="" />
-      <p dangerouslySetInnerHTML={{ __html: text }}></p>
-      <h3>Missing Ingredients</h3>
-      <ul aria-label="missing ingredients">
-        {missingIngredients?.map(ingredient => {
-          return <li key={nanoid()}>{ingredient.name}</li>;
-        })}
-      </ul>
-      <a href={url}>Instructions</a>
+      {extended && <p dangerouslySetInnerHTML={{ __html: text }}></p>}
+      {extended && <h3>Missing Ingredients</h3>}
+      {extended && (
+        <ul aria-label="missing ingredients">
+          {missingIngredients?.map(ingredient => {
+            return <li key={nanoid()}>{ingredient.name}</li>;
+          })}
+        </ul>
+      )}
+
       <div>
-        {onSave && <Button text="Save" onClick={onSave} />}
-        <Button remove text="Delete" onClick={onDelete} />
+        <Button onClick={extendCard}>{extended ? 'back' : 'Info'}</Button>
+        <Button>
+          <a href={url}>Instructions</a>
+        </Button>
+
+        {onSave && <Button onClick={onSave}>Save</Button>}
+        <Button remove text="Delete" onClick={onDelete}>
+          Delete
+        </Button>
       </div>
-    </Card>
+    </RecipeCard>
   );
 }
 
-const Card = styled.section`
+const RecipeCard = styled.section`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #65a603;
-  padding: 20px;
+  padding: 10px;
   margin: 20px 5px 0;
   display: grid;
   gap: 20px;
   justify-items: center;
+
+  div {
+    width: 300px;
+    display: flex;
+
+    gap: 10px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  span {
+    cursor: pointer;
+  }
 
   img {
     border-radius: 20px;
@@ -60,6 +93,6 @@ const Card = styled.section`
   }
 
   a {
-    color: #dfe2f2;
+    color: #000;
   }
 `;
