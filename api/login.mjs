@@ -4,7 +4,14 @@ import { createToken } from '../backend/service/jwt-service.mjs';
 import { isPasswordMatch } from '../backend/service/password-service.mjs';
 
 export default async function loginHandler(req, res) {
+  const { method } = req;
+
+  if (method !== 'POST') {
+    return res.status(405).json({ code: 405, message: 'Method not allowed' });
+  }
+
   const { name, password } = req.body;
+
   if (!(name && password)) {
     return res
       .status(404)
