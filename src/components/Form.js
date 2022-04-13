@@ -108,7 +108,7 @@ export default function Form({ onSubmitIngredients }) {
         />
       </FormControl>
       <FormControl>
-        <Button text="Randomize"></Button>
+        <Button>Randomize</Button>
       </FormControl>
     </StyledForm>
   );

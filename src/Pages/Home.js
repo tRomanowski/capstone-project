@@ -1,6 +1,7 @@
-import FetchedRecipe from '../components/FetchedRecipe';
+import Button from '../components/Button';
 import Form from '../components/Form';
 import MainWrapper from '../components/MainWrapper';
+import Recipe from '../components/Recipe';
 import { useState } from 'react';
 
 export default function Home() {
@@ -54,20 +55,17 @@ export default function Home() {
   return (
     <MainWrapper>
       {!showRecipe && <Form onSubmitIngredients={onSubmitIngredients} />}
-      {showRecipe &&
-        (recipe ? (
-          <FetchedRecipe
-            title={recipe.title}
-            image={recipe.image}
-            text={recipe.summary}
-            url={recipe.sourceUrl}
-            missingIngredients={recipe.missedIngredients}
-            onDelete={handleDelete}
-            onSave={() => handleSave(recipe)}
-          />
-        ) : (
-          'Loading'
-        ))}
+      {showRecipe && (
+        <Recipe
+          title={recipe.title}
+          image={recipe.image}
+          text={recipe.summary}
+          url={recipe.sourceUrl}
+          missingIngredients={recipe.missedIngredients}
+          onDelete={handleDelete}
+          onSave={() => handleSave(recipe)}
+        />
+      )}
     </MainWrapper>
   );
 }

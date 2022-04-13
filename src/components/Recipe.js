@@ -30,11 +30,17 @@ export default function Recipe({
           })}
         </ul>
       )}
-      <span onClick={extendCard}>{extended ? 'back' : 'Info'}</span>
-      <a href={url}>Instructions</a>
+
       <div>
-        {onSave && <Button text="Save" onClick={onSave} />}
-        <Button remove text="Delete" onClick={onDelete} />
+        <Button onClick={extendCard}>{extended ? 'back' : 'Info'}</Button>
+        <Button>
+          <a href={url}>Instructions</a>
+        </Button>
+
+        {onSave && <Button onClick={onSave}>Save</Button>}
+        <Button remove text="Delete" onClick={onDelete}>
+          Delete
+        </Button>
       </div>
     </RecipeCard>
   );
@@ -44,11 +50,25 @@ const RecipeCard = styled.section`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #65a603;
-  padding: 20px;
+  padding: 10px;
   margin: 20px 5px 0;
   display: grid;
   gap: 20px;
   justify-items: center;
+
+  div {
+    width: 300px;
+    display: flex;
+
+    gap: 10px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
 
   span {
     cursor: pointer;
@@ -73,6 +93,6 @@ const RecipeCard = styled.section`
   }
 
   a {
-    color: #dfe2f2;
+    color: #000;
   }
 `;
