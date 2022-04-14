@@ -11,9 +11,26 @@ GET http://localhost:3000/api/hello/Jane
 POST http://localhost:3000/api/login
 Content-Type: application/json
 
-{"name": "Jane", "password": "pass123"}
+{"name": "Jane", "password": ""}
 
 ### Get profile via access token
 
 GET http://localhost:3000/api/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NDk4NDYwMjN9.Y5WLKzhd31dv2opsTEpKpoMiMlVZlic4JRLlRC3pQhw
+Authorization: Bearer ..
+
+### Github request access token
+
+POST https://github.com/login/oauth/access_token
+Content-Type: application/json
+Accept: application/json
+
+{
+    "client_id": "",
+    "client_secret": "",
+    "code": ""
+}
+
+### Get logged in github user
+
+GET https://api.github.com/user
+Authorization: Bearer access_token

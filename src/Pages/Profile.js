@@ -21,10 +21,12 @@ export default function Profile({ token }) {
       .then(setProfile);
   }, [token]);
 
+  const name = profile?.name ?? profile.githubName;
+
   return (
     <MainWrapper>
       <h1>Profile</h1>
-      <p>Hello {profile.name}</p>
+      <p>Hello {name}</p>
     </MainWrapper>
   );
 }

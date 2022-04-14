@@ -1,7 +1,8 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import Favorites from './Pages/Favorites';
+import GitHubRedirect from './Pages/GitHubRedirect';
 import Header from './components/Header';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
@@ -10,10 +11,6 @@ import Profile from './Pages/Profile';
 export default function App() {
   const [token, setToken] = useState();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log({ token });
-  }, [token]);
 
   async function loginWithNameAndPassword(credentials) {
     const response = await fetch('/api/login', {
@@ -27,6 +24,22 @@ export default function App() {
     setToken(data.token);
     navigate('/profile');
   }
+
+  const loginWithGitHubCode = useCallback(
+    async code => {
+      const response = await fetch('/api/github-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }),
+      });
+      const data = await response.json();
+      setToken(data.token);
+      navigate('/profile');
+    },
+    [navigate]
+  );
 
   function handleLogout() {
     setToken();
@@ -45,6 +58,10 @@ export default function App() {
           element={<Login onLogin={loginWithNameAndPassword} />}
         />
         <Route path="/profile" element={<Profile token={token} />} />
+        <Route
+          path="/oauth/redirect"
+          element={<GitHubRedirect onLogin={loginWithGitHubCode} />}
+        />
       </Routes>
     </>
   );

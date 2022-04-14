@@ -3,6 +3,10 @@ import MainWrapper from '../components/MainWrapper';
 import styled from 'styled-components';
 import { useState } from 'react';
 
+const clientID = process.env.REACT_APP_GITHUB_CLIENT_ID;
+
+const githubLoginUrl = `https://github.com/login/oauth/authorize?client_id=${clientID}`;
+
 const initialCredentials = {
   name: '',
   password: '',
@@ -47,6 +51,7 @@ export default function Login({ onLogin }) {
         </FormControl>
         <Button>Login</Button>
       </Form>
+      <a href={githubLoginUrl}>Login with Github</a>
     </MainWrapper>
   );
 }
