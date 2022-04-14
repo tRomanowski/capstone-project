@@ -2,7 +2,7 @@ import Logo from '../svg/Logo';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Header() {
+export default function Header({ token }) {
   return (
     <StyledHeader>
       <h1>Randomealizer</h1>
@@ -10,6 +10,8 @@ export default function Header() {
       <Nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
+        <NavLink to="/login">Login</NavLink>
+        {token && <NavLink to="/profile">Profile</NavLink>}
       </Nav>
     </StyledHeader>
   );
@@ -35,8 +37,10 @@ const StyledHeader = styled.header`
 `;
 
 const Nav = styled.nav`
+  width: 100%;
   display: flex;
   padding: 12px;
+  gap: 20px;
   justify-content: space-evenly;
   grid-column-start: 1;
   grid-column-end: -1;
@@ -48,7 +52,7 @@ const Nav = styled.nav`
     color: #dfe2f2;
     text-decoration: none;
     font-size: 1.5rem;
-    margin: 0 50px;
+    margin: 0;
   }
 
   a.active {
