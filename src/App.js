@@ -28,9 +28,14 @@ export default function App() {
     navigate('/profile');
   }
 
+  function handleLogout() {
+    setToken();
+    navigate('/login');
+  }
+
   return (
     <>
-      <Header token={token} />
+      <Header token={token} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
