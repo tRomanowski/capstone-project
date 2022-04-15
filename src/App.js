@@ -1,5 +1,5 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import Favorites from './Pages/Favorites';
 import GitHubRedirect from './Pages/GitHubRedirect';
@@ -50,7 +50,7 @@ export default function App() {
     <>
       <Header token={token} onLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home token={token} />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route
           path="/login"

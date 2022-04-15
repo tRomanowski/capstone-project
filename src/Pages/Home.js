@@ -1,10 +1,9 @@
-import Button from '../components/Button';
 import Form from '../components/Form';
 import MainWrapper from '../components/MainWrapper';
 import Recipe from '../components/Recipe';
 import { useState } from 'react';
 
-export default function Home() {
+export default function Home({ token }) {
   const [recipe, setRecipe] = useState({});
   const [showRecipe, setShowRecipe] = useState(false);
 
@@ -41,8 +40,9 @@ export default function Home() {
     };
 
     await fetch('/api/recipes', {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newRecipe),

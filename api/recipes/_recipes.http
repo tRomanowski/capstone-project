@@ -29,3 +29,22 @@ Content-Type: application/json
 {
   "_id": "624f13da6f51bc1f8443fccd"
 }
+
+### patch to User.recipes
+
+PATCH {{baseURL}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NTAwMTU5ODZ9.SxJaI0qUuw5QCHrcp_4JWsxWihO13VngXL0r6gFWZnQ
+Content-Type: application/json
+
+{
+    "id": 4124 ,
+    "title": "Test POST Recipe",
+    "image": "https://source.unsplash.com/random/200×300",
+    "summary": "lorem ipsum blablabla ....",
+    "sourceUrl": "https://developer.mozilla.org/de/",
+    "missedIngredients": [
+      {
+        "name": "oil"
+      }
+    ]
+}

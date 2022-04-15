@@ -14,6 +14,7 @@ export default function Favorites() {
           console.error(data);
           return [];
         }
+
         return data;
       })
       .then(setRecipes);

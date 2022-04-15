@@ -31,12 +31,12 @@ export default async function githubLoginhandler(req, res) {
   await connectToMongodb();
 
   const foundUser = await User.findOne({ githubName });
-
+  const recipes = [];
   if (foundUser) {
     const token = createToken(foundUser._id);
     return res.status(200).json({ token });
   } else {
-    const newUser = new User({ githubName });
+    const newUser = new User({ githubName, recipes });
     await newUser.save();
     const token = createToken(newUser._id);
     return res.status(200).json({ token });
