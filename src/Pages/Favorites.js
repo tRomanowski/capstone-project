@@ -5,7 +5,6 @@ import RecipeList from '../components/RecipeList';
 
 export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
-  console.log(token);
   useEffect(() => {
     fetch('api/recipes', {
       method: 'GET',
@@ -26,17 +25,18 @@ export default function Favorites({ token }) {
   }, [token]);
 
   async function handleDelete(obj) {
-    setRecipes(recipes.filter(recipe => recipe._id !== obj._id));
-    await fetch('/api/recipes', {
-      method: 'DELETE',
+    setRecipes(recipes.filter(recipe => recipe.title !== obj.title));
+    await fetch('/api/recipes/delete', {
+      method: 'PATCH',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(obj._id),
+      body: JSON.stringify({ title: obj.title }),
     });
     alert('Recipe deleted');
   }
-
+  console.log(recipes);
   return (
     <MainWrapper>
       <RecipeList recipes={recipes} onDelete={handleDelete} />

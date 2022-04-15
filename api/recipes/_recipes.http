@@ -24,11 +24,12 @@ Content-Type: application/json
 
 ### DELETE / db delete recipes
 
-DELETE {{baseURL}}
+PATCH  {{baseURL}}/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NTAwMTU5ODZ9.SxJaI0qUuw5QCHrcp_4JWsxWihO13VngXL0r6gFWZnQ
 Content-Type: application/json
 
 {
-  "_id": "624f13da6f51bc1f8443fccd"
+  "title": "Nori Seaweed Muffins"
 }
 
 ### patch to User.recipes

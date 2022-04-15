@@ -31,7 +31,6 @@ export default function Home({ token }) {
 
   async function handleSave(recipe) {
     const newRecipe = {
-      id: recipe.id,
       title: recipe.title,
       image: recipe.image,
       summary: recipe.summary,
