@@ -1,5 +1,6 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import { loadFromLocal, saveToLocal } from './utility/localStorage';
+import { useCallback, useEffect, useState } from 'react';
 
 import Favorites from './Pages/Favorites';
 import GitHubRedirect from './Pages/GitHubRedirect';
@@ -9,8 +10,12 @@ import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 
 export default function App() {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(loadFromLocal('token') ?? '');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    saveToLocal('token', token);
+  }, [token]);
 
   async function loginWithNameAndPassword(credentials) {
     const response = await fetch('/api/login', {
