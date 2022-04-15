@@ -3,7 +3,7 @@
 ### GET / db recipes
 
 GET {{baseURL}}
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NTAwMTU5ODZ9.SxJaI0qUuw5QCHrcp_4JWsxWihO13VngXL0r6gFWZnQ
+Authorization: Bearer access toke
 
 ### POST / db recipes
 POST {{baseURL}}
@@ -25,7 +25,7 @@ Content-Type: application/json
 ### DELETE / db delete recipes
 
 PATCH  {{baseURL}}/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NTAwMTU5ODZ9.SxJaI0qUuw5QCHrcp_4JWsxWihO13VngXL0r6gFWZnQ
+Authorization: Bearer access token
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 ### patch to User.recipes
 
 PATCH {{baseURL}}
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjU2ODlkMjBjYWE5OWUxNjQ4MTYzNzgiLCJpYXQiOjE2NTAwMTU5ODZ9.SxJaI0qUuw5QCHrcp_4JWsxWihO13VngXL0r6gFWZnQ
+Authorization: Bearer access token
 Content-Type: application/json
 
 {

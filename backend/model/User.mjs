@@ -6,7 +6,7 @@ const schema = new Schema(
     name: { type: String },
     githubName: { type: String },
     password: { type: String },
-    recipes: { type: Object },
+    recipes: { type: Array },
   },
   {
     versionKey: false,
