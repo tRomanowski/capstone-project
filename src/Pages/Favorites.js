@@ -36,7 +36,7 @@ export default function Favorites({ token }) {
     });
     alert('Recipe deleted');
   }
-  console.log(recipes);
+
   return (
     <MainWrapper>
       <RecipeList recipes={recipes} onDelete={handleDelete} />

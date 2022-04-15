@@ -21,6 +21,16 @@ export default function App() {
       body: JSON.stringify(credentials),
     });
     const data = await response.json();
+    if (data.code === 401) {
+      console.error(data);
+      alert('User and/or password incorrect!');
+      return;
+    }
+    if (data.code === 404) {
+      console.error(data);
+      alert('User and/or password incorrect!');
+      return;
+    }
     setToken(data.token);
     navigate('/profile');
   }
