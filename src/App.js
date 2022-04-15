@@ -51,7 +51,7 @@ export default function App() {
       <Header token={token} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home token={token} />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites token={token} />} />
         <Route
           path="/login"
           x

@@ -3,11 +3,16 @@ import { useEffect, useState } from 'react';
 import MainWrapper from '../components/MainWrapper';
 import RecipeList from '../components/RecipeList';
 
-export default function Favorites() {
+export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
-
+  console.log(token);
   useEffect(() => {
-    fetch('api/recipes')
+    fetch('api/recipes', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then(async res => {
         const data = await res.json();
         if (!res.ok) {
@@ -18,7 +23,7 @@ export default function Favorites() {
         return data;
       })
       .then(setRecipes);
-  }, []);
+  }, [token]);
 
   async function handleDelete(obj) {
     setRecipes(recipes.filter(recipe => recipe._id !== obj._id));
