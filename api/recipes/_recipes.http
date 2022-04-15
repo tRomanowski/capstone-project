@@ -3,6 +3,7 @@
 ### GET / db recipes
 
 GET {{baseURL}}
+Authorization: Bearer access toke
 
 ### POST / db recipes
 POST {{baseURL}}
@@ -23,9 +24,29 @@ Content-Type: application/json
 
 ### DELETE / db delete recipes
 
-DELETE {{baseURL}}
+PATCH  {{baseURL}}/delete
+Authorization: Bearer access token
 Content-Type: application/json
 
 {
-  "_id": "624f13da6f51bc1f8443fccd"
+  "title": "Nori Seaweed Muffins"
+}
+
+### patch to User.recipes
+
+PATCH {{baseURL}}
+Authorization: Bearer access token
+Content-Type: application/json
+
+{
+    "id": 4124 ,
+    "title": "Test POST Recipe",
+    "image": "https://source.unsplash.com/random/200×300",
+    "summary": "lorem ipsum blablabla ....",
+    "sourceUrl": "https://developer.mozilla.org/de/",
+    "missedIngredients": [
+      {
+        "name": "oil"
+      }
+    ]
 }
