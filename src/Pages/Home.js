@@ -1,6 +1,7 @@
 import Form from '../components/Form';
 import MainWrapper from '../components/MainWrapper';
 import Recipe from '../components/Recipe';
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 
 export default function Home({ token }) {
@@ -26,7 +27,7 @@ export default function Home({ token }) {
   async function handleDelete() {
     setShowRecipe(false);
     setRecipe({});
-    alert('Recipe removed');
+    toast.error('Recipe removed!');
   }
 
   async function handleSave(recipe) {
@@ -46,7 +47,7 @@ export default function Home({ token }) {
       },
       body: JSON.stringify(newRecipe),
     });
-    alert('Recipe saved');
+    toast.success('Recipe saved');
     setRecipe({});
     setShowRecipe(false);
   }

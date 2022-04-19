@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import MainWrapper from '../components/MainWrapper';
 import RecipeList from '../components/RecipeList';
+import { toast } from 'react-toastify';
 
 export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
@@ -34,7 +35,7 @@ export default function Favorites({ token }) {
       },
       body: JSON.stringify({ title: obj.title }),
     });
-    alert('Recipe deleted');
+    toast.error('Recipe deleted');
   }
 
   return (

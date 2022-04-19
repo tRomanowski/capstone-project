@@ -1,3 +1,5 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { loadFromLocal, saveToLocal } from './utility/localStorage';
 import { useCallback, useEffect, useState } from 'react';
@@ -8,6 +10,7 @@ import Header from './components/Header';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   const [token, setToken] = useState(loadFromLocal('token') ?? '');
@@ -78,6 +81,18 @@ export default function App() {
           element={<GitHubRedirect onLogin={loginWithGitHubCode} />}
         />
       </Routes>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

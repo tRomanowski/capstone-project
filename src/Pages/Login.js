@@ -27,7 +27,6 @@ export default function Login({ onLogin }) {
 
   return (
     <MainWrapper>
-      <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <FormControl>
           <label htmlFor="userName">Username:</label>
