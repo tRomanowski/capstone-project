@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import { FaGithub } from 'react-icons/fa';
 import MainWrapper from '../components/MainWrapper';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -50,7 +51,10 @@ export default function Login({ onLogin }) {
         </FormControl>
         <Button>Login</Button>
       </Form>
-      <a href={githubLoginUrl}>Login with Github</a>
+      <StyledAnchor href={githubLoginUrl}>
+        Login with Github
+        <FaGithub />
+      </StyledAnchor>
     </MainWrapper>
   );
 }
@@ -85,4 +89,15 @@ const FormControl = styled.div`
     font-size: 17px;
     border: none;
   }
+`;
+
+const StyledAnchor = styled.a`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  text-decoration: none;
+  background-color: grey;
+  padding: 10px 40px;
+  border-radius: 20px;
+  color: inherit;
 `;
