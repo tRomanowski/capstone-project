@@ -1,5 +1,6 @@
 import Button from './Button';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 
 export default function Form({ onSubmitIngredients }) {
@@ -37,7 +38,7 @@ export default function Form({ onSubmitIngredients }) {
       ingredients.ingredient1 = ingredient1;
       ingredients.ingredient2 = ingredient2;
     } else {
-      alert('You need to put in your first and second ingredient');
+      toast.error('You need to put in your first and second ingredient');
       return;
     }
 

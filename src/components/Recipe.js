@@ -11,6 +11,7 @@ export default function Recipe({
   missingIngredients,
   onDelete,
   onSave,
+  token,
 }) {
   const [extended, setExtended] = useState(false);
 
@@ -37,7 +38,7 @@ export default function Recipe({
           <a href={url}>Instructions</a>
         </Button>
 
-        {onSave && <Button onClick={onSave}>Save</Button>}
+        {token && onSave && <Button onClick={onSave}>Save</Button>}
         <Button remove text="Delete" onClick={onDelete}>
           Delete
         </Button>

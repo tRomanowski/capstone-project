@@ -64,6 +64,7 @@ export default function Home({ token }) {
           missingIngredients={recipe.missedIngredients}
           onDelete={handleDelete}
           onSave={() => handleSave(recipe)}
+          token={token}
         />
       )}
     </MainWrapper>
