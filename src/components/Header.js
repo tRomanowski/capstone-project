@@ -12,9 +12,11 @@ export default function Header({ token, onLogout }) {
   return (
     <>
       <StyledHeader>
-        <h1>
-          Rando<span>meal</span>izer
-        </h1>
+        <NavLink to="/">
+          <h1>
+            Rando<span>meal</span>izer
+          </h1>
+        </NavLink>
         {/* <Logo /> */}
         <Nav>
           <NavLink to="/">Home</NavLink>
@@ -80,7 +82,7 @@ const Nav = styled.nav`
 
   a {
     color: var(--text-light);
-    text-decoration: none;
+
     margin-left: 1em;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -112,6 +114,7 @@ const Burger = styled.div`
   width: 30px;
   position: relative;
   display: none;
+  cursor: pointer;
   @media screen and (max-width: 768px) {
     display: block;
   }

@@ -26,6 +26,10 @@ body {
     color: var(--text-color);
     font-size: var(--font-size)
 }
+
+a {
+  text-decoration: none;
+}
 `;
 
 export default GlobalStyles;

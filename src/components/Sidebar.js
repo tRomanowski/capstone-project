@@ -83,7 +83,6 @@ const Nav = styled.nav`
 
   a {
     color: var(--text-light);
-    text-decoration: none;
 
     letter-spacing: 1px;
     padding: 0.5em 1em;
