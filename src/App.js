@@ -1,4 +1,7 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import { loadFromLocal, saveToLocal } from './utility/localStorage';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -28,12 +31,12 @@ export default function App() {
     const data = await response.json();
     if (data.code === 401) {
       console.error(data);
-      alert('User and/or password incorrect!');
+      toast.error('User and/or password incorrect!');
       return;
     }
     if (data.code === 404) {
       console.error(data);
-      alert('User and/or password incorrect!');
+      toast.error('User and/or password incorrect!');
       return;
     }
     setToken(data.token);
@@ -50,6 +53,7 @@ export default function App() {
         body: JSON.stringify({ code }),
       });
       const data = await response.json();
+      console.log(data);
       setToken(data.token);
       navigate('/profile');
     },
@@ -78,6 +82,18 @@ export default function App() {
           element={<GitHubRedirect onLogin={loginWithGitHubCode} />}
         />
       </Routes>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

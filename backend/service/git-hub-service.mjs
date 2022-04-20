@@ -29,6 +29,9 @@ export async function getGitHubAccessToken(code) {
     }
   );
 
+  if (!githubResponse) {
+    return 'Token missing';
+  }
   const githubResponseJson = await githubResponse.json();
   return githubResponseJson.access_token;
 }

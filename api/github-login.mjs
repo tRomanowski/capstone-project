@@ -23,7 +23,9 @@ export default async function githubLoginhandler(req, res) {
   const githubAccessToken = await getGitHubAccessToken(code);
 
   if (!githubAccessToken) {
-    return res.status(403).json({ code: 403, message: 'Forbidden' });
+    return res
+      .status(403)
+      .json({ code: 403, message: 'Forbidden/ token missing' });
   }
 
   const githubName = await getGitHubName(githubAccessToken);

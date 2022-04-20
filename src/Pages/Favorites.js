@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import MainWrapper from '../components/MainWrapper';
 import RecipeList from '../components/RecipeList';
+import styled from 'styled-components';
+import { toast } from 'react-toastify';
 
 export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
@@ -34,12 +36,46 @@ export default function Favorites({ token }) {
       },
       body: JSON.stringify({ title: obj.title }),
     });
-    alert('Recipe deleted');
+    toast.error('Recipe deleted');
   }
 
   return (
     <MainWrapper>
+      {recipes.length === 0 && (
+        <StyledCard>
+          <h2>Info</h2>
+          <p>You need to be logged in to save your favorite recipes!</p>
+        </StyledCard>
+      )}
       <RecipeList recipes={recipes} onDelete={handleDelete} />
     </MainWrapper>
   );
 }
+
+const StyledCard = styled.section`
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #65a603;
+  padding: 10px;
+  margin: 20px 5px 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 200px;
+
+  p {
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    padding: 10px;
+    text-align: center;
+    margin-top: -30px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+`;
