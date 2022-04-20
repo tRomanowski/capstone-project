@@ -50,7 +50,7 @@ export default function Recipe({
 const RecipeCard = styled.section`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #65a603;
+  background-color: var(--primary-color);
   padding: 10px;
   margin: 20px 5px 0;
   display: grid;
