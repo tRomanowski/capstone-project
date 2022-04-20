@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import { loadFromLocal, saveToLocal } from './utility/localStorage';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -10,7 +11,6 @@ import Header from './components/Header';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
-import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   const [token, setToken] = useState(loadFromLocal('token') ?? '');
@@ -31,12 +31,12 @@ export default function App() {
     const data = await response.json();
     if (data.code === 401) {
       console.error(data);
-      alert('User and/or password incorrect!');
+      toast.error('User and/or password incorrect!');
       return;
     }
     if (data.code === 404) {
       console.error(data);
-      alert('User and/or password incorrect!');
+      toast.error('User and/or password incorrect!');
       return;
     }
     setToken(data.token);
@@ -53,6 +53,7 @@ export default function App() {
         body: JSON.stringify({ code }),
       });
       const data = await response.json();
+      console.log(data);
       setToken(data.token);
       navigate('/profile');
     },

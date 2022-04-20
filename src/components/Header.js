@@ -5,7 +5,9 @@ import styled from 'styled-components';
 export default function Header({ token, onLogout }) {
   return (
     <StyledHeader>
-      <h1>Randomealizer</h1>
+      <h1>
+        Rando<span>meal</span>izer
+      </h1>
       <Logo />
       <Nav>
         <NavLink to="/">Home</NavLink>
@@ -29,8 +31,13 @@ const StyledHeader = styled.header`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 36px 36px;
 
+  span {
+    color: black;
+  }
+
   h1 {
     font-size: 1.7rem;
+    margin: 5px;
   }
 
   svg {
