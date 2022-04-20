@@ -99,6 +99,6 @@ const StyledAnchor = styled.a`
   background-color: grey;
   padding: 10px 40px;
   border-radius: 20px;
-  color: inherit;
+  color: var(--text-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;

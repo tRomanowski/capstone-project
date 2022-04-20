@@ -31,8 +31,11 @@ export default function Recipe({
           })}
         </ul>
       )}
+      <span onClick={extendCard}>
+        {extended ? 'Close Recipe Info' : 'View Recipe Info'}
+      </span>
 
-      <div>
+      {/* <div>
         <Button onClick={extendCard}>{extended ? 'back' : 'Info'}</Button>
         <Button>
           <a href={url}>Instructions</a>
@@ -42,7 +45,7 @@ export default function Recipe({
         <Button remove text="Delete" onClick={onDelete}>
           Delete
         </Button>
-      </div>
+      </div> */}
     </RecipeCard>
   );
 }
@@ -51,11 +54,8 @@ const RecipeCard = styled.section`
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 5px 15px var(--shadow-color);
-
+  max-width: 380px;
   margin: 20px 5px 0;
-  display: grid;
-  gap: 20px;
-  justify-items: center;
 
   div {
     display: flex;
@@ -67,8 +67,7 @@ const RecipeCard = styled.section`
 
   h2 {
     font-size: 1em;
-
-    text-align: center;
+    padding: 15px;
   }
 
   img {
@@ -76,23 +75,29 @@ const RecipeCard = styled.section`
   }
 
   span {
+    display: block;
     cursor: pointer;
+    padding: 15px;
+    color: var(--primary-color);
   }
 
   p {
     background-color: #fff;
-    color: #000;
+    color: var(--text-light);
     border-radius: 20px;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    padding: 10px;
-    text-align: center;
+    padding: 15px;
   }
   p a {
     color: blue;
   }
 
-  a {
-    color: #000;
+  h3 {
+    padding: 15px;
+  }
+
+  ul {
+    padding-left: 15px;
+    padding-bottom: 15px;
+    list-style: none;
   }
 `;
