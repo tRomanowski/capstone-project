@@ -20,8 +20,8 @@ export default function Recipe({
   }
   return (
     <RecipeCard>
+      <img src={image} alt="" />
       <h2>{title}</h2>
-      <img src={image} height="200" width="300" alt="" />
       {extended && <p dangerouslySetInnerHTML={{ __html: text }}></p>}
       {extended && <h3>Missing Ingredients</h3>}
       {extended && (
@@ -48,17 +48,16 @@ export default function Recipe({
 }
 
 const RecipeCard = styled.section`
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: var(--primary-color);
-  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+
   margin: 20px 5px 0;
   display: grid;
   gap: 20px;
   justify-items: center;
 
   div {
-    width: 300px;
     display: flex;
 
     gap: 10px 10px;
@@ -67,17 +66,17 @@ const RecipeCard = styled.section`
   }
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1em;
+
     text-align: center;
+  }
+
+  img {
+    width: 100%;
   }
 
   span {
     cursor: pointer;
-  }
-
-  img {
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
   p {

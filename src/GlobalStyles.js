@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
-    color: var(--text-color);
+    color: var(--text-light);
     font-size: var(--font-size)
 }
 

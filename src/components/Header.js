@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import NoneStyledButton from './NoneStyledButton';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -97,17 +98,17 @@ const Nav = styled.nav`
   }
 `;
 
-const NoneStyledButton = styled.button`
-  color: var(--text-light);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: var(--font-size);
-  margin-left: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-`;
+// const NoneStyledButton = styled.button`
+//   color: var(--text-light);
+//   background: none;
+//   border: none;
+//   padding: 0;
+//   cursor: pointer;
+//   font-size: var(--font-size);
+//   margin-left: 1em;
+//   letter-spacing: 1px;
+//   text-transform: uppercase;
+// `;
 
 const Burger = styled.div`
   height: 28px;
