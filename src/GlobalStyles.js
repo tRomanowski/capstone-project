@@ -24,7 +24,8 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--text-light);
-    font-size: var(--font-size)
+    font-size: var(--font-size);
+    min-width: 380px;
 }
 
 a {
