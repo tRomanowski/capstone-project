@@ -61,7 +61,7 @@ export default function Login({ onLogin }) {
 
 const Form = styled.form`
   border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   background-color: #fff;
   padding: 20px;
   margin-top: 20px;

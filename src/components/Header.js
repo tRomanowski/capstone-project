@@ -18,7 +18,6 @@ export default function Header({ token, onLogout }) {
             Rando<span>meal</span>izer
           </h1>
         </NavLink>
-        {/* <Logo /> */}
         <Nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/favorites">Favorites</NavLink>
@@ -55,9 +54,6 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-inline: 5vw;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 36px 36px; */
 
   span {
     color: rgb(10, 10, 10);

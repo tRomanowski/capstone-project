@@ -14,7 +14,6 @@ export default function Recipe({
   token,
 }) {
   const [extended, setExtended] = useState(false);
-  console.log(token);
 
   function extendCard() {
     setExtended(!extended);

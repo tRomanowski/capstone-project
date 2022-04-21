@@ -64,7 +64,7 @@ export default function Favorites({ token }) {
 
 const StyledCard = styled.section`
   border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   background-color: var(--background-color);
   color: var(--text-light);
   padding: 10px;
