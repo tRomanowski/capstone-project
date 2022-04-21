@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react';
 
 import MainWrapper from '../components/MainWrapper';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 import RecipeList from '../components/RecipeList';
+import { css } from '@emotion/react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+
+const override = css`
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 25px);
+`;
 
 export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
@@ -40,15 +48,18 @@ export default function Favorites({ token }) {
   }
 
   return (
-    <MainWrapper>
+    <>
       {!token && (
         <StyledCard>
           <h2>Info</h2>
           <p>You need to be logged in to save your favorite recipes!</p>
         </StyledCard>
       )}
+      {token && recipes.length === 0 && (
+        <PacmanLoader color="#65a603" css={override} />
+      )}
       <RecipeList recipes={recipes} onDelete={handleDelete} />
-    </MainWrapper>
+    </>
   );
 }
 

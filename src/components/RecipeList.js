@@ -27,6 +27,8 @@ export default function RecipeList({ recipes, onDelete }) {
 const StyledList = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 0.2em;
+  justify-items: center;
+  margin-bottom: 15px;
 `;

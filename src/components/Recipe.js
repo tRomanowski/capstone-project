@@ -59,6 +59,7 @@ export default function Recipe({
 }
 
 const RecipeCard = styled.section`
+  width: 90vw;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
