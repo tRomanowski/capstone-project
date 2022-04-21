@@ -42,18 +42,6 @@ export default function Recipe({
           Delete
         </Button>
       </Container>
-
-      {/* <div>
-        <Button onClick={extendCard}>{extended ? 'back' : 'Info'}</Button>
-        <Button>
-          <a href={url}>Instructions</a>
-        </Button>
-
-        {token && onSave && <Button onClick={onSave}>Save</Button>}
-        <Button remove text="Delete" onClick={onDelete}>
-          Delete
-        </Button>
-      </div> */}
     </RecipeCard>
   );
 }

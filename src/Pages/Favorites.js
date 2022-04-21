@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import MainWrapper from '../components/MainWrapper';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import RecipeList from '../components/RecipeList';
 import { css } from '@emotion/react';
