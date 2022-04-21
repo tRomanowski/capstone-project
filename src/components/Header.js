@@ -98,18 +98,6 @@ const Nav = styled.nav`
   }
 `;
 
-// const NoneStyledButton = styled.button`
-//   color: var(--text-light);
-//   background: none;
-//   border: none;
-//   padding: 0;
-//   cursor: pointer;
-//   font-size: var(--font-size);
-//   margin-left: 1em;
-//   letter-spacing: 1px;
-//   text-transform: uppercase;
-// `;
-
 const Burger = styled.div`
   height: 28px;
   width: 30px;

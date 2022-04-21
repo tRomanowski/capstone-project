@@ -14,6 +14,7 @@ export default function Recipe({
   token,
 }) {
   const [extended, setExtended] = useState(false);
+  console.log(token);
 
   function extendCard() {
     setExtended(!extended);
@@ -31,9 +32,16 @@ export default function Recipe({
           })}
         </ul>
       )}
-      <span onClick={extendCard}>
-        {extended ? 'Close Recipe Info' : 'View Recipe Info'}
-      </span>
+      {extended && <Instructions href={url}>Instructions</Instructions>}
+      <Container>
+        <span onClick={extendCard}>
+          {extended ? 'Close Recipe Info' : 'View Recipe Info'}
+        </span>
+        {token && onSave && <Button onClick={onSave}>save</Button>}
+        <Button remove onClick={onDelete}>
+          Delete
+        </Button>
+      </Container>
 
       {/* <div>
         <Button onClick={extendCard}>{extended ? 'back' : 'Info'}</Button>
@@ -51,19 +59,13 @@ export default function Recipe({
 }
 
 const RecipeCard = styled.section`
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 5px 15px var(--shadow-color);
   max-width: 380px;
   margin: 20px 5px 0;
-
-  div {
-    display: flex;
-
-    gap: 10px 10px;
-    justify-content: center;
-    align-items: center;
-  }
 
   h2 {
     font-size: 1em;
@@ -77,7 +79,7 @@ const RecipeCard = styled.section`
   span {
     display: block;
     cursor: pointer;
-    padding: 15px;
+    padding-left: 15px;
     color: var(--primary-color);
   }
 
@@ -100,4 +102,21 @@ const RecipeCard = styled.section`
     padding-bottom: 15px;
     list-style: none;
   }
+`;
+
+const Instructions = styled.a`
+  padding: 15px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  text-decoration: underline;
+`;
+
+const Container = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  gap: 10px 10px;
+  justify-content: space-around;
+  align-items: center;
 `;

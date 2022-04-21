@@ -49,7 +49,7 @@ export default function Login({ onLogin }) {
             onChange={handleChange}
           />
         </FormControl>
-        <Button>Login</Button>
+        <Button>login</Button>
       </Form>
       <StyledAnchor href={githubLoginUrl}>
         Login with Github
@@ -60,9 +60,9 @@ export default function Login({ onLogin }) {
 }
 
 const Form = styled.form`
-  border-radius: 20px;
+  border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #65a603;
+  background-color: #fff;
   padding: 20px;
   margin-top: 20px;
   display: flex;
@@ -75,19 +75,20 @@ const FormControl = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 5px;
   margin: 10px 0;
 
   label {
     text-align: start;
+    color: var(--text-light);
   }
   input {
-    border-radius: 20px;
+    border-radius: 3px;
     width: 100%;
     height: 40px;
     padding: 3px 7px;
     font-size: 17px;
-    border: none;
+    border: 2px solid var(--primary-color);
   }
 `;
 
@@ -98,7 +99,7 @@ const StyledAnchor = styled.a`
   text-decoration: none;
   background-color: grey;
   padding: 10px 40px;
-  border-radius: 20px;
+  border-radius: 3px;
   color: var(--text-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
