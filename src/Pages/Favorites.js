@@ -41,14 +41,12 @@ export default function Favorites({ token }) {
 
   return (
     <MainWrapper>
-      {recipes.length === 0 &&
-        setTimeout(
-          <StyledCard>
-            <h2>Info</h2>
-            <p>You need to be logged in to save your favorite recipes!</p>
-          </StyledCard>,
-          3000
-        )}
+      {!token && (
+        <StyledCard>
+          <h2>Info</h2>
+          <p>You need to be logged in to save your favorite recipes!</p>
+        </StyledCard>
+      )}
       <RecipeList recipes={recipes} onDelete={handleDelete} />
     </MainWrapper>
   );
