@@ -26,6 +26,7 @@ body {
     color: var(--text-light);
     font-size: var(--font-size);
     min-width: 380px;
+    height: 100vh;
 }
 
 a {

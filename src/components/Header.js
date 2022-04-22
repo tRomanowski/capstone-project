@@ -45,6 +45,8 @@ export default function Header({ token, onLogout }) {
 }
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 55px;
   background-color: var(--background-color);

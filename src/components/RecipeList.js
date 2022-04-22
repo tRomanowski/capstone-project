@@ -31,4 +31,5 @@ const StyledList = styled.ul`
   gap: 0.2em;
   justify-items: center;
   margin-bottom: 15px;
+  overflow-y: auto;
 `;
