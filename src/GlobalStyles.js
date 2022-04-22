@@ -23,13 +23,19 @@ const GlobalStyles = createGlobalStyle`
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: var(--font-size)
+    color: var(--text-light);
+    font-size: var(--font-size);
+    min-width: 380px;
+    height: 100vh;
 }
 
 a {
   text-decoration: none;
 }
+
+input:focus {
+    outline: none;
+  }
 `;
 
 export default GlobalStyles;

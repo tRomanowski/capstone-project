@@ -26,6 +26,10 @@ export default function RecipeList({ recipes, onDelete }) {
 
 const StyledList = styled.ul`
   list-style: none;
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 0.2em;
+  justify-items: center;
+  margin-bottom: 15px;
+  overflow-y: auto;
 `;

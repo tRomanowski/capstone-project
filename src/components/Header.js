@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import NoneStyledButton from './NoneStyledButton';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -17,7 +18,6 @@ export default function Header({ token, onLogout }) {
             Rando<span>meal</span>izer
           </h1>
         </NavLink>
-        {/* <Logo /> */}
         <Nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/favorites">Favorites</NavLink>
@@ -45,6 +45,8 @@ export default function Header({ token, onLogout }) {
 }
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 55px;
   background-color: var(--background-color);
@@ -54,9 +56,6 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-inline: 5vw;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 36px 36px; */
 
   span {
     color: rgb(10, 10, 10);
@@ -95,18 +94,6 @@ const Nav = styled.nav`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`;
-
-const NoneStyledButton = styled.button`
-  color: var(--text-light);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: var(--font-size);
-  margin-left: 1em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 `;
 
 const Burger = styled.div`

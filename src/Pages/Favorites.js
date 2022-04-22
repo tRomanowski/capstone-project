@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import MainWrapper from '../components/MainWrapper';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 import RecipeList from '../components/RecipeList';
+import { css } from '@emotion/react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+
+const override = css`
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 25px);
+`;
 
 export default function Favorites({ token }) {
   const [recipes, setRecipes] = useState([]);
@@ -40,22 +47,26 @@ export default function Favorites({ token }) {
   }
 
   return (
-    <MainWrapper>
-      {recipes.length === 0 && (
+    <>
+      {!token && (
         <StyledCard>
           <h2>Info</h2>
           <p>You need to be logged in to save your favorite recipes!</p>
         </StyledCard>
       )}
+      {token && recipes.length === 0 && (
+        <PacmanLoader color="#65a603" css={override} />
+      )}
       <RecipeList recipes={recipes} onDelete={handleDelete} />
-    </MainWrapper>
+    </>
   );
 }
 
 const StyledCard = styled.section`
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #65a603;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  background-color: var(--background-color);
+  color: var(--text-light);
   padding: 10px;
   margin: 20px 5px 0;
   display: grid;
@@ -65,12 +76,11 @@ const StyledCard = styled.section`
 
   p {
     background-color: #fff;
-    color: #000;
-    border-radius: 20px;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    color: var(--primary-color);
+    border-radius: 3px;
+
     padding: 10px;
-    text-align: center;
+
     margin-top: -30px;
   }
 

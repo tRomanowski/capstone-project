@@ -68,20 +68,22 @@ export default function App() {
   return (
     <>
       <Header token={token} onLogout={handleLogout} />
-      <Routes>
-        <Route path="/" element={<Home token={token} />} />
-        <Route path="/favorites" element={<Favorites token={token} />} />
-        <Route
-          path="/login"
-          x
-          element={<Login onLogin={loginWithNameAndPassword} />}
-        />
-        <Route path="/profile" element={<Profile token={token} />} />
-        <Route
-          path="/oauth/redirect"
-          element={<GitHubRedirect onLogin={loginWithGitHubCode} />}
-        />
-      </Routes>
+      <div style={{ margin: '55px 0' }}>
+        <Routes>
+          <Route path="/" element={<Home token={token} />} />
+          <Route path="/favorites" element={<Favorites token={token} />} />
+          <Route
+            path="/login"
+            x
+            element={<Login onLogin={loginWithNameAndPassword} />}
+          />
+          <Route path="/profile" element={<Profile token={token} />} />
+          <Route
+            path="/oauth/redirect"
+            element={<GitHubRedirect onLogin={loginWithGitHubCode} />}
+          />
+        </Routes>
+      </div>
       <ToastContainer
         position="bottom-center"
         autoClose={2000}
