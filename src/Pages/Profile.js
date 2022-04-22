@@ -34,6 +34,7 @@ export default function Profile({ token }) {
 const StyledCard = styled.section`
   position: relative;
   top: 65px;
+  z-index: -1;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   background-color: var(--background-color);
