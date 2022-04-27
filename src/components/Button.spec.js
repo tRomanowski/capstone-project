@@ -8,7 +8,7 @@ describe('Button', () => {
     const mockCallback = jest.fn();
     render(<Button onClick={mockCallback} text="Randomize" />);
 
-    const button = screen.getByRole('button', { name: 'Randomize' });
+    const button = screen.getByRole('button');
     userEvent.click(button);
 
     expect(button).toBeInTheDocument();
